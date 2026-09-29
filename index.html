@@ -47,52 +47,60 @@
       </div>
 
       <div class="business-hero__visual business-reveal">
-        <div class="business-3d-stage" id="business3dStage">
-          <canvas id="businessCanvas" class="business-3d-canvas" aria-hidden="true"></canvas>
-          <div class="business-orbit business-orbit--a" aria-hidden="true"></div>
-          <div class="business-orbit business-orbit--b" aria-hidden="true"></div>
-          <div class="business-orbit business-orbit--c" aria-hidden="true"></div>
+        <div class="business-ops-stage" id="businessOpsStage" aria-label="COREX Business operations hub">
+          <div class="business-ops-stage__grid" aria-hidden="true"></div>
+          <div class="business-ops-stage__glow" aria-hidden="true"></div>
 
-          <div class="business-core3d" id="businessCore3d" aria-hidden="true">
-            <div class="business-core3d__cube">
-              <div class="business-core3d__face business-core3d__face--front"><span>COREX</span><strong>BUSINESS</strong></div>
-              <div class="business-core3d__face business-core3d__face--back"><span>SUPPORT</span><strong>24/7 FLOW</strong></div>
-              <div class="business-core3d__face business-core3d__face--right"><span>WEB</span><strong>BUILD</strong></div>
-              <div class="business-core3d__face business-core3d__face--left"><span>CONTENT</span><strong>CREATE</strong></div>
-              <div class="business-core3d__face business-core3d__face--top"><span>SOFTWARE</span><strong>ANALYZE</strong></div>
-              <div class="business-core3d__face business-core3d__face--bottom"><span>FEEDBACK</span><strong>EVOLVE</strong></div>
+          <div class="business-ops-scene" id="businessOpsScene">
+            <div class="business-ops-console">
+              <div class="business-ops-console__topbar">
+                <div class="business-ops-console__brand"><span>↗</span> COREX <b>BUSINESS</b></div>
+                <div class="business-ops-console__state"><i></i> OPERATIONS ONLINE</div>
+              </div>
+              <div class="business-ops-console__body">
+                <aside class="business-ops-sidebar" aria-hidden="true"><span class="is-active">⌂</span><span>▦</span><span>◫</span><span>◎</span><span>⌁</span></aside>
+                <div class="business-ops-dashboard">
+                  <div class="business-ops-dashboard__heading"><div><small>CLIENT WORKSPACE / 01</small><strong>Digital operation</strong></div><span>LIVE VIEW</span></div>
+                  <div class="business-ops-dashboard__main">
+                    <div class="business-ops-site-preview">
+                      <div class="business-ops-site-preview__bar"><i></i><i></i><i></i><span>brand.company</span></div>
+                      <div class="business-ops-site-preview__hero"><small>YOUR BUSINESS</small><strong>Presence that<br>looks ready.</strong><span></span></div>
+                      <div class="business-ops-site-preview__rows"><i></i><i></i><i></i></div>
+                    </div>
+                    <div class="business-ops-metrics">
+                      <article><small>WEB</small><strong>98</strong><span>experience score</span><i style="--meter:88%"></i></article>
+                      <article><small>CONTENT</small><strong>12</strong><span>assets in pipeline</span><i style="--meter:70%"></i></article>
+                      <article><small>SUPPORT</small><strong>ON</strong><span>operation monitored</span><i style="--meter:95%"></i></article>
+                    </div>
+                  </div>
+                  <div class="business-ops-timeline"><span class="is-done">DISCOVER</span><i></i><span class="is-done">DESIGN</span><i></i><span class="is-live">BUILD</span><i></i><span>EVOLVE</span></div>
+                </div>
+              </div>
             </div>
-            <div class="business-core3d__glow"></div>
+
+            <article class="business-ops-float business-ops-float--content">
+              <small>CONTENT SYSTEM</small><div class="business-ops-content-stack"><i></i><i></i><i></i></div><strong>Brand consistency</strong><span>Posts • campaigns • visual system</span>
+            </article>
+            <article class="business-ops-float business-ops-float--audit">
+              <small>SOFTWARE REVIEW</small><div class="business-ops-audit-ring"><i></i><b></b></div><strong>UX / FLOW</strong><span>12 improvement points mapped</span>
+            </article>
+            <article class="business-ops-float business-ops-float--support">
+              <div><i></i><small>SITE OPERATIONS</small></div><strong>Stable & monitored</strong><span>Updates • fixes • evolution</span>
+            </article>
           </div>
 
-          <div class="business-panel business-panel--browser">
-            <div class="business-panel__bar"><i></i><i></i><i></i><span>corex.business</span></div>
-            <div class="business-panel__browser-body">
-              <div class="business-panel__hero-line"></div>
-              <div class="business-panel__text-line"></div>
-              <div class="business-panel__text-line business-panel__text-line--short"></div>
-              <div class="business-panel__button"></div>
-            </div>
-          </div>
-
-          <div class="business-panel business-panel--analytics">
-            <span>PROJECT PULSE</span>
-            <strong>+38%</strong>
-            <div class="business-mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-
-          <div class="business-panel business-panel--status">
-            <span class="business-status-dot"></span>
-            <div><small>OPERATIONS</small><strong>ALL SYSTEMS ACTIVE</strong></div>
-          </div>
-
-          <div class="business-data-label business-data-label--a">WEBSITE / BUILD</div>
-          <div class="business-data-label business-data-label--b">CONTENT / CREATE</div>
-          <div class="business-data-label business-data-label--c">SOFTWARE / ANALYZE</div>
+          <div class="business-ops-caption business-ops-caption--a"><span>01</span> WEBSITE / BUILD</div>
+          <div class="business-ops-caption business-ops-caption--b"><span>02</span> CONTENT / CREATE</div>
+          <div class="business-ops-caption business-ops-caption--c"><span>03</span> ANALYZE / EVOLVE</div>
         </div>
       </div>
     </div>
     <div class="business-hero__rail" aria-hidden="true"><span>WEBSITES</span><i>◆</i><span>CONTENT</span><i>◆</i><span>SOFTWARE REVIEW</span><i>◆</i><span>SUPPORT</span><i>◆</i><span>FEEDBACK</span></div>
+    <div class="business-capability-strip business-container business-reveal">
+      <article><small>DESIGN + CODE</small><strong>Sites com identidade</strong><span>Responsivos, claros e prontos para crescer.</span></article>
+      <article><small>CONTENT SYSTEM</small><strong>Marca consistente</strong><span>Peças e campanhas seguindo a mesma linguagem.</span></article>
+      <article><small>REVIEW + SUPPORT</small><strong>Operação acompanhada</strong><span>Análise, manutenção e evolução depois da entrega.</span></article>
+    </div>
   </section>
 
   <section class="business-section" id="business-servicos">
@@ -105,51 +113,74 @@
             <div class="biz-site-window"><div class="biz-site-window__bar"><i></i><i></i><i></i></div><div class="biz-site-window__hero"><span></span><strong></strong><small></small><b></b></div><div class="biz-site-window__cards"><i></i><i></i><i></i></div></div>
             <div class="biz-site-cursor">↗</div>
           </div>
-          <div class="business-service__content"><div class="business-service__icon">↗</div><h3>Criação de sites</h3><p>Landing pages, sites institucionais, catálogos e experiências digitais construídas para apresentar a empresa com clareza e converter atenção em contato.</p><ul><li>Design responsivo</li><li>Performance e SEO técnico base</li><li>Integrações e formulários</li></ul><a href="#business-contato">Planejar um site <span>↗</span></a></div>
+          <div class="business-service__content"><div class="business-service__icon">↗</div><h3>Criação de sites</h3><p>Landing pages, sites institucionais, catálogos e experiências digitais construídas para apresentar a empresa com clareza e converter atenção em contato.</p><ul><li>Design responsivo</li><li>Performance e SEO técnico base</li><li>Integrações e formulários</li></ul><div class="business-service__meta"><span>UI/UX</span><span>FRONT-END</span><span>DEPLOY</span></div><a href="#business-contato">Planejar um site <span>↗</span></a></div>
         </article>
 
         <article class="business-service business-service--content business-reveal" data-biz-service="content">
           <span class="business-service__number">02 / CONTENT SYSTEM</span>
           <div class="business-service__visual business-service__visual--content" aria-hidden="true"><div class="biz-post biz-post--one"><i></i><strong>01</strong></div><div class="biz-post biz-post--two"><i></i><strong>02</strong></div><div class="biz-post biz-post--three"><i></i><strong>03</strong></div><span class="biz-content-orbit"></span></div>
-          <div class="business-service__content"><div class="business-service__icon">▦</div><h3>Posts & conteúdo</h3><p>Peças visuais e estrutura de conteúdo para redes sociais com consistência de marca.</p><ul><li>Posts e carrosséis</li><li>Campanhas</li><li>Padronização visual</li></ul></div>
+          <div class="business-service__content"><div class="business-service__icon">▦</div><h3>Posts & conteúdo</h3><p>Peças visuais e estrutura de conteúdo para redes sociais com consistência de marca.</p><ul><li>Posts e carrosséis</li><li>Campanhas</li><li>Padronização visual</li></ul><div class="business-service__meta"><span>SOCIAL</span><span>CAMPAIGN</span><span>BRAND</span></div></div>
         </article>
 
         <article class="business-service business-service--analysis business-reveal" data-biz-service="analysis">
           <span class="business-service__number">03 / SOFTWARE REVIEW</span>
           <div class="business-service__visual business-service__visual--analysis" aria-hidden="true"><div class="biz-radar"><span></span><i></i><b></b><em></em></div><div class="biz-scan-line"></div><small>UX / FLOW / RISK</small></div>
-          <div class="business-service__content"><div class="business-service__icon">◎</div><h3>Análise de software</h3><p>Revisão de fluxo, interface, experiência de uso e problemas percebidos em sistemas existentes.</p><ul><li>UX e navegação</li><li>Fluxos críticos</li><li>Relatório de melhorias</li></ul></div>
+          <div class="business-service__content"><div class="business-service__icon">◎</div><h3>Análise de software</h3><p>Revisão de fluxo, interface, experiência de uso e problemas percebidos em sistemas existentes.</p><ul><li>UX e navegação</li><li>Fluxos críticos</li><li>Relatório de melhorias</li></ul><div class="business-service__meta"><span>AUDIT</span><span>UX</span><span>PRIORITIES</span></div></div>
         </article>
 
         <article class="business-service business-service--support business-reveal" data-biz-service="support">
           <span class="business-service__number">04 / SITE OPERATIONS</span>
           <div class="business-service__visual business-service__visual--support" aria-hidden="true"><div class="biz-support-ring"><span></span><i></i><b></b></div><div class="biz-support-status"><i></i><span>MONITORING</span><strong>ONLINE</strong></div><div class="biz-support-wave"><i></i><i></i><i></i><i></i><i></i></div></div>
-          <div class="business-service__content"><div class="business-service__icon">⌁</div><h3>Suporte a sites</h3><p>Correções, atualizações, conteúdo, pequenas evoluções e acompanhamento técnico.</p><ul><li>Manutenção</li><li>Correções</li><li>Melhorias contínuas</li></ul></div>
+          <div class="business-service__content"><div class="business-service__icon">⌁</div><h3>Suporte a sites</h3><p>Correções, atualizações, conteúdo, pequenas evoluções e acompanhamento técnico.</p><ul><li>Manutenção</li><li>Correções</li><li>Melhorias contínuas</li></ul><div class="business-service__meta"><span>CARE</span><span>UPDATES</span><span>MONITORING</span></div></div>
         </article>
 
         <article class="business-service business-service--feedback business-reveal" data-biz-service="feedback">
           <span class="business-service__number">05 / STRATEGY FEEDBACK</span>
           <div class="business-service__visual business-service__visual--feedback" aria-hidden="true"><div class="biz-feedback-score"><span>COREX SCORE</span><strong>92</strong><small>/100</small></div><div class="biz-feedback-bars"><i style="--v:86%"></i><i style="--v:92%"></i><i style="--v:77%"></i></div><div class="biz-feedback-tag">ACTION PLAN ↗</div></div>
-          <div class="business-service__content"><div class="business-service__icon">◇</div><h3>Feedback & consultoria</h3><p>Uma segunda visão sobre site, produto digital ou comunicação para encontrar pontos fracos e oportunidades.</p><ul><li>Feedback estruturado</li><li>Prioridades</li><li>Plano de ação</li></ul></div>
+          <div class="business-service__content"><div class="business-service__icon">◇</div><h3>Feedback & consultoria</h3><p>Uma segunda visão sobre site, produto digital ou comunicação para encontrar pontos fracos e oportunidades.</p><ul><li>Feedback estruturado</li><li>Prioridades</li><li>Plano de ação</li></ul><div class="business-service__meta"><span>REVIEW</span><span>ROADMAP</span><span>DECISION</span></div></div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="business-section business-project-formats" id="business-formatos">
+    <div class="business-container">
+      <header class="business-heading business-heading--split business-reveal"><div><p class="business-kicker"><span></span> 02 / FORMATOS DE PROJETO</p><h2>Da entrega pontual à <em>operação contínua.</em></h2></div><p>A COREX Business pode entrar apenas onde existe um gargalo ou assumir um conjunto maior de entregas digitais com uma linguagem única.</p></header>
+      <div class="business-project-grid">
+        <article class="business-project-card business-reveal"><div class="business-project-card__top"><span>01</span><small>LAUNCH</small></div><h3>Presença digital</h3><p>Para empresas que precisam sair do improviso e apresentar produto, serviço e contato de forma profissional.</p><div class="business-project-card__flow"><span>Estratégia</span><i>→</i><span>Design</span><i>→</i><span>Site</span></div><ul><li>Landing page ou institucional</li><li>Identidade aplicada à interface</li><li>Formulários e publicação</li></ul><a href="#business-contato">Montar escopo <span>↗</span></a></article>
+        <article class="business-project-card business-project-card--blue business-reveal"><div class="business-project-card__top"><span>02</span><small>GROWTH</small></div><h3>Conteúdo + campanha</h3><p>Para transformar a presença da marca em um sistema visual consistente para redes, campanhas e lançamentos.</p><div class="business-project-card__flow"><span>Direção</span><i>→</i><span>Assets</span><i>→</i><span>Campanha</span></div><ul><li>Pacote de posts e carrosséis</li><li>Peças para ofertas e lançamentos</li><li>Template visual reutilizável</li></ul><a href="#business-contato">Planejar conteúdo <span>↗</span></a></article>
+        <article class="business-project-card business-reveal"><div class="business-project-card__top"><span>03</span><small>OPERATIONS</small></div><h3>Análise + suporte</h3><p>Para empresas que já têm um site ou software, mas precisam encontrar falhas, organizar prioridades e continuar evoluindo.</p><div class="business-project-card__flow"><span>Audit</span><i>→</i><span>Fix</span><i>→</i><span>Evolve</span></div><ul><li>Revisão de UX e fluxo</li><li>Correções e manutenção</li><li>Backlog priorizado de melhorias</li></ul><a href="#business-contato">Revisar operação <span>↗</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="business-section business-standards">
+    <div class="business-container">
+      <header class="business-heading business-reveal"><p class="business-kicker"><span></span> 03 / PADRÃO COREX</p><h2>Bonito precisa funcionar.<br><em>E continuar funcionando.</em></h2></header>
+      <div class="business-standard-grid">
+        <article class="business-standard business-reveal"><span>01</span><div class="business-standard__icon">◫</div><h3>Responsivo</h3><p>Interface planejada para desktop, tablet e celular sem virar uma versão quebrada do mesmo layout.</p><small>MOBILE / DESKTOP</small></article>
+        <article class="business-standard business-reveal"><span>02</span><div class="business-standard__icon">↯</div><h3>Performance</h3><p>Animação com propósito, assets organizados e atenção ao custo visual para manter a experiência fluida.</p><small>LOAD / RENDER / UX</small></article>
+        <article class="business-standard business-reveal"><span>03</span><div class="business-standard__icon">◎</div><h3>Clareza</h3><p>Hierarquia visual e conteúdo orientados para fazer o usuário entender o que a empresa oferece e qual é o próximo passo.</p><small>MESSAGE / CTA</small></article>
+        <article class="business-standard business-reveal"><span>04</span><div class="business-standard__icon">⌁</div><h3>Evolução</h3><p>Estrutura pensada para receber novas páginas, campanhas, integrações e ajustes sem refazer tudo do zero.</p><small>SUPPORT / SCALE</small></article>
       </div>
     </div>
   </section>
 
   <section class="business-section business-process" id="business-processo">
     <div class="business-container">
-      <header class="business-heading business-heading--split business-reveal"><div><p class="business-kicker"><span></span> 02 / PROCESSO</p><h2>Profissional sem virar <em>burocrático.</em></h2></div><p>Um projeto bom precisa ter uma sequência simples: entender, decidir, executar e medir o que ficou melhor.</p></header>
+      <header class="business-heading business-heading--split business-reveal"><div><p class="business-kicker"><span></span> 04 / PROCESSO</p><h2>Profissional sem virar <em>burocrático.</em></h2></div><p>Um projeto bom precisa ter uma sequência simples: entender, decidir, executar e medir o que ficou melhor.</p></header>
       <div class="business-process__track">
-        <article class="business-process__step business-reveal"><span>01</span><i></i><h3>Briefing</h3><p>Objetivo, público, problema atual, referências e escopo.</p></article>
-        <article class="business-process__step business-reveal"><span>02</span><i></i><h3>Direção</h3><p>Estrutura, linguagem visual e prioridades antes de produzir.</p></article>
-        <article class="business-process__step business-reveal"><span>03</span><i></i><h3>Execução</h3><p>Construção, revisão e refinamento com foco no que será usado.</p></article>
-        <article class="business-process__step business-reveal"><span>04</span><i></i><h3>Evolução</h3><p>Feedback, suporte e melhorias após a entrega.</p></article>
+        <article class="business-process__step business-reveal"><span>01</span><i></i><h3>Briefing</h3><p>Objetivo, público, problema atual, referências e escopo.</p><small>INPUT → CONTEXTO</small></article>
+        <article class="business-process__step business-reveal"><span>02</span><i></i><h3>Direção</h3><p>Estrutura, linguagem visual e prioridades antes de produzir.</p><small>SYSTEM → DECISÃO</small></article>
+        <article class="business-process__step business-reveal"><span>03</span><i></i><h3>Execução</h3><p>Construção, revisão e refinamento com foco no que será usado.</p><small>BUILD → REVIEW</small></article>
+        <article class="business-process__step business-reveal"><span>04</span><i></i><h3>Evolução</h3><p>Feedback, suporte e melhorias após a entrega.</p><small>CARE → SCALE</small></article>
       </div>
     </div>
   </section>
 
   <section class="business-section business-deliverables">
     <div class="business-container">
-      <header class="business-heading business-reveal"><p class="business-kicker"><span></span> 03 / ENTREGAS</p><h2>O que sua empresa <em>recebe.</em></h2></header>
+      <header class="business-heading business-reveal"><p class="business-kicker"><span></span> 05 / ENTREGAS</p><h2>O que sua empresa <em>recebe.</em></h2></header>
       <div class="business-table business-reveal">
         <div class="business-table__row business-table__head"><span>Serviço</span><span>Entrega principal</span><span>Indicado para</span></div>
         <div class="business-table__row"><strong>Website</strong><span>Interface responsiva + estrutura pronta para publicação</span><span>Empresas que precisam vender ou apresentar melhor</span></div>
@@ -162,8 +193,8 @@
 
   <section class="business-section business-contact" id="business-contato">
     <div class="business-container business-contact__shell business-reveal">
-      <div class="business-contact__copy"><p class="business-kicker"><span></span> 04 / NOVO PROJETO</p><h2>Tem algo para construir ou <em>melhorar?</em></h2><p>Conte rapidamente o que sua empresa precisa. Este formulário prepara o briefing no navegador; depois podemos conectar ao WhatsApp, e-mail ou backend.</p><div class="business-contact__badges"><span>Sites</span><span>Conteúdo</span><span>Software</span><span>Suporte</span></div></div>
-      <form class="business-form" id="business-contact-form"><label><span>Empresa / nome</span><input name="company" required placeholder="Ex.: Star Imobi"></label><label><span>O que você precisa?</span><select name="service" required><option value="site">Criação de site</option><option value="content">Posts / conteúdo</option><option value="analysis">Análise de software</option><option value="support">Suporte a site</option><option value="feedback">Feedback / consultoria</option></select></label><label><span>Resumo do projeto</span><textarea name="brief" rows="5" required placeholder="Explique o objetivo, problema atual ou o que você gostaria de criar..."></textarea></label><button class="business-button business-button--primary business-button--full" type="submit">Preparar briefing <span>↗</span></button><p class="business-form__status" id="business-form-status" role="status"></p></form>
+      <div class="business-contact__copy"><p class="business-kicker"><span></span> 06 / NOVO PROJETO</p><h2>Tem algo para construir ou <em>melhorar?</em></h2><p>Conte rapidamente o que sua empresa precisa. Este formulário prepara o briefing no navegador; depois podemos conectar ao WhatsApp, e-mail ou backend.</p><div class="business-contact__badges"><span>Sites</span><span>Conteúdo</span><span>Software</span><span>Suporte</span></div></div>
+      <form class="business-form" id="business-contact-form"><label><span>Empresa / nome</span><input name="company" required placeholder="Ex.: Star Imobi"></label><label><span>O que você precisa?</span><select name="service" required><option value="site">Criação de site</option><option value="content">Posts / conteúdo</option><option value="analysis">Análise de software</option><option value="support">Suporte a site</option><option value="feedback">Feedback / consultoria</option></select></label><label><span>Momento do projeto</span><select name="moment"><option value="idea">Ainda é uma ideia</option><option value="starting">Quero começar agora</option><option value="existing">Já existe e precisa melhorar</option><option value="support">Preciso de suporte contínuo</option></select></label><label><span>Resumo do projeto</span><textarea name="brief" rows="5" required placeholder="Explique o objetivo, problema atual ou o que você gostaria de criar..."></textarea></label><button class="business-button business-button--primary business-button--full" type="submit">Preparar briefing <span>↗</span></button><p class="business-form__status" id="business-form-status" role="status"></p></form>
     </div>
   </section>
 

@@ -1,4 +1,4 @@
-# COREX V10 — Performance e Business 3D
+# COREX V11 ? Performance e Business Operations Hub
 
 Versão baseada na V7.3 HQ Fluid, mantendo vídeo 1080p e qualidade visual.
 
@@ -39,3 +39,11 @@ Esta versão também inclui a divisão COREX Business no mesmo site.
 - Cada serviço possui animação visual própria
 - Cards de serviços com tilt e iluminação local
 - Header Business em vidro azul escuro
+
+## V11 — COREX Business Operations Hub
+
+- Hero Business reconstruído com um workspace 3D coerente (site, conteúdo, análise e suporte).
+- Removido o Canvas animado/cubo da V10 para reduzir travamentos.
+- Novos formatos de projeto, padrão COREX e briefing ampliado.
+- Serviços mantêm microanimações e agora exibem categorias/entregas com mais detalhe.
+- COREX Performance preservado.

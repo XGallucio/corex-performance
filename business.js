@@ -191,200 +191,108 @@
 })();
 
 /* =========================================================
-   COREX BUSINESS V10 — 3D scene + service interactions
+   COREX BUSINESS V11 — operations hub + optimized interaction
    ========================================================= */
 (() => {
   'use strict';
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
-  const stage = document.querySelector('#business3dStage');
-  const core = document.querySelector('#businessCore3d');
-  const canvas = document.querySelector('#businessCanvas');
+  const stage = document.querySelector('#businessOpsStage');
+  const scene = document.querySelector('#businessOpsScene');
 
-  // Pointer-driven 3D stage. rAF keeps high-polling mice from flooding style updates.
-  if (stage && core && !coarsePointer && !reducedMotion) {
+  // One compositor-only 3D transform for the whole hero scene.
+  // No canvas loop, no continuously rotating cube, no per-frame DOM rebuilding.
+  if (stage && scene && !coarsePointer && !reducedMotion) {
     let raf = 0;
-    let px = 0;
-    let py = 0;
+    let nx = 0;
+    let ny = 0;
+
+    const paint = () => {
+      stage.style.setProperty('--ops-ry', `${(nx * 2.8).toFixed(2)}deg`);
+      stage.style.setProperty('--ops-rx', `${(-ny * 2.2).toFixed(2)}deg`);
+      raf = 0;
+    };
 
     stage.addEventListener('pointermove', (event) => {
       const rect = stage.getBoundingClientRect();
-      px = (event.clientX - rect.left) / rect.width - .5;
-      py = (event.clientY - rect.top) / rect.height - .5;
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        stage.style.setProperty('--stage-ry', `${(px * 4.5).toFixed(2)}deg`);
-        stage.style.setProperty('--stage-rx', `${(-py * 3.6).toFixed(2)}deg`);
-        core.style.setProperty('--core-ry', `${(28 + px * 18).toFixed(2)}deg`);
-        core.style.setProperty('--core-rx', `${(-16 - py * 14).toFixed(2)}deg`);
-        raf = 0;
-      });
+      nx = Math.max(-.5, Math.min(.5, (event.clientX - rect.left) / rect.width - .5));
+      ny = Math.max(-.5, Math.min(.5, (event.clientY - rect.top) / rect.height - .5));
+      if (!raf) raf = requestAnimationFrame(paint);
     }, { passive: true });
 
     stage.addEventListener('pointerleave', () => {
-      stage.style.setProperty('--stage-ry', '0deg');
-      stage.style.setProperty('--stage-rx', '0deg');
-      core.style.setProperty('--core-ry', '28deg');
-      core.style.setProperty('--core-rx', '-16deg');
-    });
+      nx = 0;
+      ny = 0;
+      if (!raf) raf = requestAnimationFrame(paint);
+    }, { passive: true });
   }
 
-  // Service cards: cursor-local light + restrained 3D tilt.
+  // Service cards keep a subtle, local 3D response. Updates are capped to one paint/frame.
   if (!coarsePointer && !reducedMotion) {
     document.querySelectorAll('[data-biz-service]').forEach((card) => {
       let raf = 0;
-      let lastX = 0;
-      let lastY = 0;
+      let x = 0;
+      let y = 0;
+      let width = 1;
+      let height = 1;
+
+      const paint = () => {
+        const px = x / width - .5;
+        const py = y / height - .5;
+        card.style.setProperty('--mx', `${x}px`);
+        card.style.setProperty('--my', `${y}px`);
+        card.style.transform = `perspective(1200px) rotateX(${(-py * 1.8).toFixed(2)}deg) rotateY(${(px * 2.2).toFixed(2)}deg) translateY(-5px)`;
+        raf = 0;
+      };
+
+      card.addEventListener('pointerenter', () => {
+        const rect = card.getBoundingClientRect();
+        width = rect.width || 1;
+        height = rect.height || 1;
+      }, { passive: true });
 
       card.addEventListener('pointermove', (event) => {
         const rect = card.getBoundingClientRect();
-        lastX = event.clientX - rect.left;
-        lastY = event.clientY - rect.top;
-        card.style.setProperty('--mx', `${lastX}px`);
-        card.style.setProperty('--my', `${lastY}px`);
-        if (raf) return;
-        raf = requestAnimationFrame(() => {
-          const nx = lastX / rect.width - .5;
-          const ny = lastY / rect.height - .5;
-          card.style.transform = `perspective(1100px) rotateX(${(-ny * 3.2).toFixed(2)}deg) rotateY(${(nx * 3.8).toFixed(2)}deg) translateY(-8px)`;
-          raf = 0;
-        });
+        x = event.clientX - rect.left;
+        y = event.clientY - rect.top;
+        width = rect.width || 1;
+        height = rect.height || 1;
+        if (!raf) raf = requestAnimationFrame(paint);
       }, { passive: true });
 
       card.addEventListener('pointerleave', () => {
         if (raf) cancelAnimationFrame(raf);
         raf = 0;
         card.style.transform = '';
-      });
+      }, { passive: true });
+    });
+
+    // Project cards use only a cursor-local highlight; no extra transform chain.
+    document.querySelectorAll('.business-project-card,.business-standard').forEach((card) => {
+      let raf = 0;
+      let x = 0;
+      let y = 0;
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        x = event.clientX - rect.left;
+        y = event.clientY - rect.top;
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          card.style.setProperty('--detail-x', `${x}px`);
+          card.style.setProperty('--detail-y', `${y}px`);
+          raf = 0;
+        });
+      }, { passive: true });
     });
   }
 
-  // Lightweight professional data-field canvas. Runs only while Business hero is visible.
-  if (!canvas || !stage) return;
-  const ctx = canvas.getContext('2d', { alpha: true });
-  if (!ctx) return;
-
-  let width = 0;
-  let height = 0;
-  let dpr = 1;
-  let visible = false;
-  let frameId = 0;
-  let lastTime = 0;
-
-  const nodes = Array.from({ length: coarsePointer ? 24 : 42 }, () => ({
-    x: Math.random(),
-    y: Math.random(),
-    vx: (Math.random() - .5) * .000055,
-    vy: (Math.random() - .5) * .000055,
-    size: Math.random() * 1.3 + .7,
-    phase: Math.random() * Math.PI * 2
-  }));
-
-  function resize() {
-    const rect = stage.getBoundingClientRect();
-    width = Math.max(1, rect.width);
-    height = Math.max(1, rect.height);
-    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-
-  function draw(now) {
-    frameId = 0;
-    if (!visible || !document.body.classList.contains('business-mode')) return;
-
-    const dt = Math.min(32, now - lastTime || 16.7);
-    lastTime = now;
-    ctx.clearRect(0, 0, width, height);
-
-    const time = now * .001;
-    for (const node of nodes) {
-      node.x += node.vx * dt;
-      node.y += node.vy * dt;
-      if (node.x < -.03) node.x = 1.03;
-      if (node.x > 1.03) node.x = -.03;
-      if (node.y < -.03) node.y = 1.03;
-      if (node.y > 1.03) node.y = -.03;
-    }
-
-    // Connections are intentionally sparse to stay smooth.
-    ctx.lineWidth = .65;
-    for (let i = 0; i < nodes.length; i += 1) {
-      const a = nodes[i];
-      const ax = a.x * width;
-      const ay = a.y * height;
-      for (let j = i + 1; j < nodes.length; j += 1) {
-        const b = nodes[j];
-        const dx = (a.x - b.x) * width;
-        const dy = (a.y - b.y) * height;
-        const dist2 = dx * dx + dy * dy;
-        if (dist2 > 115 * 115) continue;
-        const alpha = (1 - Math.sqrt(dist2) / 115) * .12;
-        ctx.strokeStyle = `rgba(72,211,255,${alpha.toFixed(3)})`;
-        ctx.beginPath();
-        ctx.moveTo(ax, ay);
-        ctx.lineTo(b.x * width, b.y * height);
-        ctx.stroke();
-      }
-    }
-
-    ctx.globalCompositeOperation = 'lighter';
-    for (const node of nodes) {
-      const pulse = .65 + Math.sin(time * 1.3 + node.phase) * .25;
-      ctx.beginPath();
-      ctx.arc(node.x * width, node.y * height, node.size * pulse, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(83,225,255,${(.24 + pulse * .18).toFixed(3)})`;
-      ctx.fill();
-    }
-    ctx.globalCompositeOperation = 'source-over';
-
-    // Slow scan beam.
-    const scanY = (time * 28) % Math.max(height, 1);
-    const gradient = ctx.createLinearGradient(0, scanY, width, scanY);
-    gradient.addColorStop(0, 'rgba(0,214,255,0)');
-    gradient.addColorStop(.5, 'rgba(55,218,255,.10)');
-    gradient.addColorStop(1, 'rgba(0,214,255,0)');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, scanY, width, 1);
-
-    if (!reducedMotion) frameId = requestAnimationFrame(draw);
-  }
-
-  function ensureRunning() {
-    if (!visible || reducedMotion || frameId || !document.body.classList.contains('business-mode')) return;
-    lastTime = performance.now();
-    frameId = requestAnimationFrame(draw);
-  }
-
-  const observer = new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting;
-    if (visible) {
-      resize();
-      ensureRunning();
-    } else if (frameId) {
-      cancelAnimationFrame(frameId);
-      frameId = 0;
-    }
-  }, { threshold: .02 });
-  observer.observe(stage);
-
-  // Division changes do not emit a custom event, so watch the body class cheaply.
-  const bodyObserver = new MutationObserver(() => {
-    if (document.body.classList.contains('business-mode')) ensureRunning();
-    else if (frameId) {
-      cancelAnimationFrame(frameId);
-      frameId = 0;
-      ctx.clearRect(0, 0, width, height);
-    }
-  });
-  bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-
-  window.addEventListener('resize', () => {
-    if (!visible) return;
-    resize();
-  }, { passive: true });
+  // Pause decorative CSS motion when the Business division is not visible.
+  // CSS class is cheap and avoids background work while the user is in Performance.
+  const syncBusinessMotion = () => {
+    document.documentElement.classList.toggle('business-running', document.body.classList.contains('business-mode') && !document.hidden);
+  };
+  syncBusinessMotion();
+  new MutationObserver(syncBusinessMotion).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  document.addEventListener('visibilitychange', syncBusinessMotion, { passive: true });
 })();
