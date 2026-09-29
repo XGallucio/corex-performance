@@ -298,3 +298,93 @@
   new MutationObserver(syncBusinessMotion).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   document.addEventListener('visibilitychange', syncBusinessMotion, { passive: true });
 })();
+
+/* =========================================================
+   COREX BUSINESS V14 — expanded showcase previews
+   ========================================================= */
+(() => {
+  'use strict';
+
+  const dialog = document.querySelector('#business-showcase-dialog');
+  const viewport = document.querySelector('#business-showcase-dialog-viewport');
+  const title = document.querySelector('#business-showcase-dialog-title');
+  if (!dialog || !viewport) return;
+
+  const projects = {
+    nexus: {
+      title: 'NEXUS Architecture — Institutional Premium',
+      html: `
+        <article class="showcase-site showcase-site--nexus">
+          <nav class="showcase-site__nav"><b>NEXUS</b><span>STUDIO&nbsp;&nbsp;&nbsp; PROJECTS&nbsp;&nbsp;&nbsp; ABOUT&nbsp;&nbsp;&nbsp; CONTACT</span></nav>
+          <section class="showcase-site__hero">
+            <div><small>ARCHITECTURE / BRAND EXPERIENCE</small><h3>Spaces built<br>to be remembered.</h3><p>Um conceito institucional pensado para empresas premium: pouco ruído, hierarquia forte, fotografia dominante e sensação editorial.</p><span class="showcase-site__cta">VIEW SELECTED WORK ↗</span></div>
+            <div class="showcase-site__hero-visual" aria-hidden="true"></div>
+          </section>
+          <section class="showcase-site__section"><div class="showcase-site__section-head"><h4>Selected projects.</h4><span>Estrutura preparada para apresentar projetos, história, equipe e contato sem perder o ar sofisticado.</span></div><div class="showcase-site__cards"><article><small>01 / RESIDENTIAL</small><strong>Casa Linha</strong><p>Projeto editorial com destaque para imagem, conceito e detalhes arquitetônicos.</p></article><article><small>02 / COMMERCIAL</small><strong>Vértice</strong><p>Composição modular para mostrar escala, materiais e identidade do espaço.</p></article><article><small>03 / CULTURAL</small><strong>Pavilhão Norte</strong><p>Página de projeto com narrativa longa e foco em autoridade visual.</p></article></div></section>
+        </article>`
+    },
+    atlas: {
+      title: 'ATLAS Cloud — SaaS / Dashboard',
+      html: `
+        <article class="showcase-site showcase-site--atlas">
+          <nav class="showcase-site__nav"><b>ATLAS</b><span>PRODUCT&nbsp;&nbsp;&nbsp; SOLUTIONS&nbsp;&nbsp;&nbsp; PRICING&nbsp;&nbsp;&nbsp; LOGIN</span></nav>
+          <section class="showcase-site__hero">
+            <div><small>OPERATIONS / DATA PLATFORM</small><h3>Run your business<br>with clearer data.</h3><p>Conceito para software B2B com dashboard, métricas, onboarding e páginas de produto com aparência de plataforma madura.</p><span class="showcase-site__cta">START WORKSPACE ↗</span></div>
+            <div class="showcase-site__hero-visual" aria-hidden="true"></div>
+          </section>
+          <section class="showcase-site__section"><div class="showcase-site__section-head"><h4>Product system.</h4><span>Design de software precisa organizar informação antes de tentar impressionar. A estética entra para reforçar leitura e confiança.</span></div><div class="showcase-site__cards"><article><small>01 / DASHBOARD</small><strong>Live overview</strong><p>Indicadores, evolução e alertas organizados em uma visualização limpa.</p></article><article><small>02 / AUTOMATION</small><strong>Smart workflows</strong><p>Fluxos operacionais com estado, prioridade e acompanhamento visual.</p></article><article><small>03 / REPORTING</small><strong>Decision layer</strong><p>Relatórios estruturados para ajudar a transformar dado em ação.</p></article></div></section>
+        </article>`
+    },
+    aura: {
+      title: 'AURA Creative — Brand / Campaign',
+      html: `
+        <article class="showcase-site showcase-site--aura">
+          <nav class="showcase-site__nav"><b>AURA</b><span>WORK&nbsp;&nbsp;&nbsp; SERVICES&nbsp;&nbsp;&nbsp; CULTURE&nbsp;&nbsp;&nbsp; CONTACT</span></nav>
+          <section class="showcase-site__hero">
+            <div><small>CREATIVE STUDIO / CAMPAIGN SYSTEM</small><h3>Brands that<br><em>move.</em></h3><p>Uma linguagem mais ousada para estúdios, lançamentos e campanhas. Tipografia grande, cor, movimento e composição forte.</p><span class="showcase-site__cta">SEE THE CAMPAIGN ↗</span></div>
+            <div class="showcase-site__hero-visual" aria-hidden="true"></div>
+          </section>
+          <section class="showcase-site__section"><div class="showcase-site__section-head"><h4>Creative direction.</h4><span>Uma boa campanha não é só um post bonito. O conceito precisa funcionar no site, social, anúncio e peça de lançamento.</span></div><div class="showcase-site__cards"><article><small>01 / IDENTITY</small><strong>Visual language</strong><p>Tipografia, contraste e ritmo visual pensados como um sistema.</p></article><article><small>02 / SOCIAL</small><strong>Content rollout</strong><p>Desdobramento para posts, carrosséis, teasers e campanhas.</p></article><article><small>03 / LANDING</small><strong>Launch page</strong><p>Página com alto impacto para transformar atenção em ação.</p></article></div></section>
+        </article>`
+    },
+    vanta: {
+      title: 'VANTA Commerce — Product Showcase',
+      html: `
+        <article class="showcase-site showcase-site--vanta">
+          <nav class="showcase-site__nav"><b>VANTA</b><span>NEW&nbsp;&nbsp;&nbsp; SHOP&nbsp;&nbsp;&nbsp; OBJECTS&nbsp;&nbsp;&nbsp; LOOKBOOK</span></nav>
+          <section class="showcase-site__hero">
+            <div><small>DROP / 07 — OBJECT SERIES</small><h3>FORM 01.</h3><p>Conceito de catálogo premium com foco em produto, imagens grandes, navegação simples e uma jornada curta até a ação.</p><span class="showcase-site__cta">EXPLORE COLLECTION ↗</span></div>
+            <div class="showcase-site__hero-visual"><div class="showcase-site__product" aria-hidden="true"></div></div>
+          </section>
+          <section class="showcase-site__section"><div class="showcase-site__section-head"><h4>Designed to sell.</h4><span>Um e-commerce pode ser visualmente forte sem esconder preço, produto, benefício ou próximo passo.</span></div><div class="showcase-site__cards"><article><small>01 / PRODUCT</small><strong>Strong focus</strong><p>Produto e benefícios ficam no centro da interface, sem distrações desnecessárias.</p></article><article><small>02 / CATALOG</small><strong>Fast browsing</strong><p>Grid, filtros e coleções pensados para descoberta rápida.</p></article><article><small>03 / CONVERSION</small><strong>Clear action</strong><p>CTAs, hierarquia e confiança organizados para reduzir fricção.</p></article></div></section>
+        </article>`
+    }
+  };
+
+  const openProject = (key) => {
+    const project = projects[key];
+    if (!project) return;
+    if (title) title.textContent = project.title;
+    viewport.innerHTML = project.html;
+    viewport.scrollTop = 0;
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+    document.body.classList.add('showcase-dialog-open');
+  };
+
+  document.querySelectorAll('[data-showcase-open]').forEach((button) => {
+    button.addEventListener('click', () => openProject(button.dataset.showcaseOpen));
+  });
+
+  const closeDialog = () => {
+    if (dialog.open && typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+    document.body.classList.remove('showcase-dialog-open');
+  };
+
+  dialog.querySelector('[data-showcase-close]')?.addEventListener('click', closeDialog);
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) closeDialog();
+  });
+  dialog.addEventListener('close', () => document.body.classList.remove('showcase-dialog-open'));
+})();
