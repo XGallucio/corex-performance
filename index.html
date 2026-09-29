@@ -4,8 +4,8 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#070a0b"><meta name="description" content="COREX Performance. Explore seu hardware e estime o potencial de uma otimização com transparência.">
   <title>COREX — Performance em outra dimensão</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="intro.css"><link rel="stylesheet" href="v7.css">
-  <script src="intro.js" defer></script><script src="simulator.js" defer></script><script src="app.js" defer></script><script src="v7.js" defer></script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="intro.css"><link rel="stylesheet" href="v7.css"><link rel="stylesheet" href="business.css">
+  <script src="intro.js" defer></script><script src="simulator.js" defer></script><script src="app.js" defer></script><script src="v7.js" defer></script><script src="business.js" defer></script>
 </head>
 <body>
 <div class="site-video-shell" aria-hidden="true"><video id="site-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture poster="assets/corex-bg-poster-hq.jpg"><source src="./assets/corex-bg-1080p-perf.mp4" type="video/mp4"><source src="./assets/corex-bg.mp4" type="video/mp4"></video><div class="site-video-overlay"></div></div>
@@ -13,12 +13,12 @@
 <dialog class="intro" id="intro" aria-label="Apresentação COREX Performance">
  <canvas id="intro-canvas" aria-hidden="true"></canvas><div class="intro-vignette" aria-hidden="true"></div>
  <div class="intro-top"><span>COREX® / PERFORMANCE</span><div><button id="animate-intro" hidden>Assistir com animação</button><button id="skip-intro" autofocus>Pular intro <span>↗</span></button></div></div>
- <div class="intro-center"><div class="intro-orbit" aria-hidden="true"></div><div class="intro-logo" aria-label="COREX"><svg class="intro-mark" viewBox="0 0 80 80" fill="none" aria-hidden="true"><path d="M17 63 63 17M20 17h43v43" pathLength="1"/></svg><div class="intro-word" aria-hidden="true"><span style="--letter:0">C</span><span style="--letter:1">O</span><span style="--letter:2">R</span><span style="--letter:3">E</span><span style="--letter:4">X</span><sup>®</sup></div></div><p class="intro-tagline">PERFORMANCE EM OUTRA DIMENSÃO</p></div>
+ <div class="intro-center"><div class="intro-orbit" aria-hidden="true"></div><div class="intro-logo" aria-label="COREX"><svg class="intro-mark" viewBox="0 0 80 80" fill="none" aria-hidden="true"><path d="M17 63 63 17M20 17h43v43" pathLength="1"/></svg><div class="intro-word" aria-hidden="true"><span style="--letter:0">C</span><span style="--letter:1">O</span><span style="--letter:2">R</span><span style="--letter:3">E</span><span style="--letter:4">X</span><sup>®</sup></div></div><p class="intro-tagline">PERFORMANCE EM OUTRA DIMENSÃO</p><div class="intro-divisions" aria-label="Escolha uma divisão COREX"><button type="button" class="intro-division is-performance" data-enter-division="performance">COREX Performance</button><button type="button" class="intro-division is-business" data-enter-division="business">COREX Business <span>↗</span></button></div></div>
  <div class="intro-bottom"><div class="intro-caption"><span id="intro-status">01 / ACENDENDO O NÚCLEO</span><span id="intro-percent" aria-hidden="true">00</span></div><progress id="intro-progress" max="100" value="0" aria-label="Progresso da introdução"></progress><span class="intro-signature">MENOS RUÍDO. MAIS JOGO.</span></div>
 </dialog>
 <a class="skip" href="#simulador">Pular para o simulador</a>
-<header class="header"><a class="brand" href="#inicio" aria-label="COREX início"><span class="brand-symbol">↗</span> COREX<span class="brand-dot">®</span></a><nav class="top-nav" aria-label="Principal"><a class="top-nav__link is-active" data-nav-target="engine" href="#engine"><span class="top-nav__index">01</span><span class="top-nav__label">Experiência</span></a><a class="top-nav__link" data-nav-target="simulador" href="#simulador"><span class="top-nav__index">02</span><span class="top-nav__label">Simulador</span></a><a class="top-nav__link" data-nav-target="planos" href="#planos"><span class="top-nav__index">03</span><span class="top-nav__label">Planos</span><span class="top-nav__arrow">↗</span></a></nav><button class="motion-toggle" id="motion-toggle" aria-pressed="false" aria-label="Pausar animações">Ⅱ <span>Motion</span></button></header>
-<main>
+<header class="header"><a class="brand brand-home" href="#inicio" aria-label="COREX início"><span class="brand-symbol">↗</span> COREX<span class="brand-dot">®</span></a><div class="division-switch" role="group" aria-label="Divisão COREX"><button type="button" class="division-switch__button is-active" data-division="performance"><span class="division-switch__dot"></span>Performance</button><button type="button" class="division-switch__button division-switch__button--business" data-division="business"><span class="division-switch__dot"></span>Business</button></div><nav class="top-nav" id="performance-nav" aria-label="COREX Performance"><a class="top-nav__link is-active" data-nav-target="engine" href="#engine"><span class="top-nav__index">01</span><span class="top-nav__label">Experiência</span></a><a class="top-nav__link" data-nav-target="simulador" href="#simulador"><span class="top-nav__index">02</span><span class="top-nav__label">Simulador</span></a><a class="top-nav__link" data-nav-target="planos" href="#planos"><span class="top-nav__index">03</span><span class="top-nav__label">Planos</span><span class="top-nav__arrow">↗</span></a></nav><nav class="top-nav business-top-nav" id="business-nav" aria-label="COREX Business" hidden><a class="top-nav__link is-active" data-business-nav="business-servicos" href="#business-servicos"><span class="top-nav__index">01</span><span class="top-nav__label">Serviços</span></a><a class="top-nav__link" data-business-nav="business-processo" href="#business-processo"><span class="top-nav__index">02</span><span class="top-nav__label">Processo</span></a><a class="top-nav__link" data-business-nav="business-contato" href="#business-contato"><span class="top-nav__index">03</span><span class="top-nav__label">Contato</span><span class="top-nav__arrow">↗</span></a></nav><button class="motion-toggle" id="motion-toggle" aria-pressed="false" aria-label="Pausar animações">Ⅱ <span>Motion</span></button></header>
+<main id="performance-site" class="brand-site brand-site--performance">
 <section class="experience" id="inicio" aria-label="Explore o hardware COREX">
  <div class="stage">
   <div class="stage-grid" aria-hidden="true"></div><div class="ambient" aria-hidden="true"></div>
@@ -32,7 +32,144 @@
 <section class="simulator section" id="simulador"><div class="sim-heading reveal"><div><p class="eyebrow">02 / PERFORMANCE LAB</p><h2>Seu próximo frame.<br><em>Sem adivinhação.</em></h2></div><p>Conte como o jogo roda hoje.<br>Explore uma estimativa conservadora do espaço para ajustes.</p></div><div class="lab reveal"><form id="sim-form"><div class="panel-heading"><span class="status-dot"></span> CONFIGURE SEU CENÁRIO <span>01—INPUT</span></div><div class="form-grid"><label>Jogo<select id="game"><option value="competitive">Valorant / competitivo leve</option><option value="cs2">Counter-Strike 2</option><option value="fortnite">Fortnite</option><option value="aaa">AAA / mundo aberto</option></select></label><label>Resolução medida<select id="resolution"><option value="1080">1920 × 1080</option><option value="1440">2560 × 1440</option><option value="2160">3840 × 2160</option></select></label><label>Processador<input id="cpu-name" maxlength="60" placeholder="Ex.: Ryzen 5 5600" value="Ryzen 5 5600"></label><label>Placa de vídeo<input id="gpu-name" maxlength="60" placeholder="Ex.: RTX 3060" value="RTX 3060"></label><label>FPS médio atual<input id="fps" type="number" min="15" max="1000" step="1" value="144" required></label><label>1% low atual <span class="optional">opcional</span><input id="low" type="number" min="1" max="1000" step="1" placeholder="Ex.: 92" value="92"></label><label>Memória RAM<select id="ram"><option value="8">8 GB ou menos</option><option value="16" selected>16 GB</option><option value="32">32 GB ou mais</option></select></label><label>Estado do sistema<select id="system"><option value="clean">Já otimizado / limpo</option><option value="normal" selected>Uso cotidiano</option><option value="busy">Muitos apps abertos</option></select></label></div><label class="range-label" for="gpu-load">Uso da GPU durante o jogo <output id="gpu-load-value">92%</output></label><input id="gpu-load" type="range" min="20" max="100" value="92" step="1"><div class="range-ends"><span>Folga na GPU</span><span>GPU no limite</span></div><p class="field-help">Use medições da mesma partida e resolução. Os nomes identificam seu PC; não consultamos uma base de benchmarks.</p><p id="form-error" class="form-error" role="alert"></p><button class="button primary calculate" type="submit">Simular performance <span>↗</span></button></form><div class="lab-result"><div class="panel-heading"><span class="status-dot"></span> PROJEÇÃO DO CENÁRIO <span>02—OUTPUT</span></div><div id="result-summary" aria-live="polite" aria-atomic="true"><p class="result-label">FPS MÉDIO ESTIMADO</p><div class="fps-result"><span id="fps-range">144–153</span><span>FPS</span></div><div class="gain"><span id="gain">0–6%</span><span>possível variação após ajustes</span></div><div class="result-metrics"><div><span>Hoje</span><strong id="baseline">144 <small>FPS</small></strong></div><div><span>1% low estimado</span><strong id="low-result">92–103</strong></div><div><span>Frame médio</span><strong id="frame-result">6,5–6,9 <small>ms</small></strong></div></div><p class="bottleneck"><span>↗</span><span id="bottleneck">Analisando o cenário…</span></p></div><div class="chart-heading"><span>FRAME-TIME / VISUALIZAÇÃO ILUSTRATIVA</span><span><i></i> Atual <i></i> Projeção</span></div><canvas id="frame-chart" aria-label="Gráfico ilustrativo de frame-time atual e projetado, não uma medição ao vivo"></canvas><p class="result-note">Estimativa heurística, não benchmark nem garantia. O ganho pode ser zero. Ajustes não substituem hardware e não corrigem limitações térmicas, de rede ou do jogo.</p><details><summary>Como a estimativa funciona <span>+</span></summary><p>O FPS que você mediu é a referência. Estimamos uma pequena redução do tempo de cada frame conforme a carga da GPU e o estado do sistema. RAM e tipo de jogo afetam somente a margem conservadora para estabilidade. A resolução contextualiza a carga; não convertemos resultados entre resoluções. O 1% low só é calculado quando informado. Ping não é convertido em FPS. Consulte a metodologia incluída no pacote.</p></details></div></div></section>
 <section class="plans section" id="planos"><div class="plans-heading reveal"><p class="eyebrow">03 / ESCOLHA SEU NÍVEL</p><h2>Mais espaço<br>para <em>jogar.</em></h2><p>Três opções. Uma direção: conhecer melhor seu PC.</p></div><div class="plan-grid"><article class="plan reveal"><span class="plan-number">01 / START</span><h3>O primeiro ajuste.</h3><p>Um ponto de partida para organizar a performance.</p><div class="price"><span>R$</span>12<span>,00</span></div><ul><li>Checklist inicial do sistema</li><li>Revisão de inicialização e apps</li><li>Orientações de configuração</li></ul><button class="button outline" data-plan="START" data-price="12">Escolher Start <span>↗</span></button></article><article class="plan featured reveal"><span class="plan-number">02 / BOOST <span>MAIS EQUILÍBRIO</span></span><h3>Ajuste mais fino.</h3><p>Uma análise mais próxima do seu jeito de jogar.</p><div class="price"><span>R$</span>22<span>,00</span></div><ul><li>Tudo do Start</li><li>Revisão de ajustes por jogo</li><li>Comparação de FPS e 1% low</li></ul><button class="button primary" data-plan="BOOST" data-price="22">Escolher Boost <span>↗</span></button></article><article class="plan reveal"><span class="plan-number">03 / PRIME</span><h3>Visão do conjunto.</h3><p>Hardware, configurações e estabilidade no mesmo plano.</p><div class="price"><span>R$</span>32<span>,00</span></div><ul><li>Tudo do Boost</li><li>Revisão de estabilidade</li><li>Relatório de ajustes e resultados</li></ul><button class="button outline" data-plan="PRIME" data-price="32">Escolher Prime <span>↗</span></button></article></div><p class="plans-note">Nenhum plano garante um aumento específico de FPS. Confirme o escopo e o atendimento antes de contratar.</p></section>
 <section class="closing section reveal"><p class="eyebrow">COREX PERFORMANCE</p><h2>O jogo muda.<br><span>Seu controle também.</span></h2><a href="#inicio" class="back-top">Voltar ao sistema <span>↑</span></a></section>
-</main><footer><a class="brand" href="#inicio">↗ COREX®</a><button id="replay-intro" class="replay-intro">↻ Rever intro</button><span>Menos ruído. Mais jogo.</span><span>PERFORMANCE / 2026</span></footer>
+</main><footer id="performance-footer"><a class="brand" href="#inicio">↗ COREX®</a><button id="replay-intro" class="replay-intro">↻ Rever intro</button><span>Menos ruído. Mais jogo.</span><span>PERFORMANCE / 2026</span></footer>
+<main id="business-site" class="brand-site brand-site--business" hidden>
+  <div class="business-backdrop" aria-hidden="true"><div class="business-backdrop__mesh"></div><div class="business-backdrop__grid"></div><div class="business-backdrop__beam business-backdrop__beam--a"></div><div class="business-backdrop__beam business-backdrop__beam--b"></div></div>
+
+  <section class="business-hero" id="business-inicio">
+    <div class="business-container business-hero__grid">
+      <div class="business-hero__copy business-reveal">
+        <p class="business-kicker"><span></span> COREX BUSINESS / DIGITAL OPERATIONS</p>
+        <h1>Transformamos presença digital em <em>estrutura de negócio.</em></h1>
+        <p class="business-lead">Sites, conteúdo, análise de software e suporte contínuo para empresas que querem parecer profissionais, vender melhor e tomar decisões digitais com mais clareza.</p>
+        <div class="business-actions"><a class="business-button business-button--primary" href="#business-servicos">Explorar serviços <span>↗</span></a><a class="business-button business-button--soft" href="#business-contato">Falar sobre um projeto</a></div>
+        <div class="business-proof"><article><span>01</span><strong>Planejar</strong><small>Entender objetivo, público e gargalos.</small></article><article><span>02</span><strong>Construir</strong><small>Criar uma solução visual e funcional.</small></article><article><span>03</span><strong>Evoluir</strong><small>Dar suporte, analisar e melhorar.</small></article></div>
+      </div>
+
+      <div class="business-hero__visual business-reveal">
+        <div class="business-3d-stage" id="business3dStage">
+          <canvas id="businessCanvas" class="business-3d-canvas" aria-hidden="true"></canvas>
+          <div class="business-orbit business-orbit--a" aria-hidden="true"></div>
+          <div class="business-orbit business-orbit--b" aria-hidden="true"></div>
+          <div class="business-orbit business-orbit--c" aria-hidden="true"></div>
+
+          <div class="business-core3d" id="businessCore3d" aria-hidden="true">
+            <div class="business-core3d__cube">
+              <div class="business-core3d__face business-core3d__face--front"><span>COREX</span><strong>BUSINESS</strong></div>
+              <div class="business-core3d__face business-core3d__face--back"><span>SUPPORT</span><strong>24/7 FLOW</strong></div>
+              <div class="business-core3d__face business-core3d__face--right"><span>WEB</span><strong>BUILD</strong></div>
+              <div class="business-core3d__face business-core3d__face--left"><span>CONTENT</span><strong>CREATE</strong></div>
+              <div class="business-core3d__face business-core3d__face--top"><span>SOFTWARE</span><strong>ANALYZE</strong></div>
+              <div class="business-core3d__face business-core3d__face--bottom"><span>FEEDBACK</span><strong>EVOLVE</strong></div>
+            </div>
+            <div class="business-core3d__glow"></div>
+          </div>
+
+          <div class="business-panel business-panel--browser">
+            <div class="business-panel__bar"><i></i><i></i><i></i><span>corex.business</span></div>
+            <div class="business-panel__browser-body">
+              <div class="business-panel__hero-line"></div>
+              <div class="business-panel__text-line"></div>
+              <div class="business-panel__text-line business-panel__text-line--short"></div>
+              <div class="business-panel__button"></div>
+            </div>
+          </div>
+
+          <div class="business-panel business-panel--analytics">
+            <span>PROJECT PULSE</span>
+            <strong>+38%</strong>
+            <div class="business-mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="business-panel business-panel--status">
+            <span class="business-status-dot"></span>
+            <div><small>OPERATIONS</small><strong>ALL SYSTEMS ACTIVE</strong></div>
+          </div>
+
+          <div class="business-data-label business-data-label--a">WEBSITE / BUILD</div>
+          <div class="business-data-label business-data-label--b">CONTENT / CREATE</div>
+          <div class="business-data-label business-data-label--c">SOFTWARE / ANALYZE</div>
+        </div>
+      </div>
+    </div>
+    <div class="business-hero__rail" aria-hidden="true"><span>WEBSITES</span><i>◆</i><span>CONTENT</span><i>◆</i><span>SOFTWARE REVIEW</span><i>◆</i><span>SUPPORT</span><i>◆</i><span>FEEDBACK</span></div>
+  </section>
+
+  <section class="business-section" id="business-servicos">
+    <div class="business-container">
+      <header class="business-heading business-reveal"><p class="business-kicker"><span></span> 01 / SERVIÇOS</p><h2>Uma divisão criada para <em>empresas digitais.</em></h2><p>Você pode contratar uma entrega específica ou usar a COREX Business como apoio contínuo para sua operação online.</p></header>
+      <div class="business-services">
+        <article class="business-service business-service--wide business-service--website business-reveal" data-biz-service="website">
+          <span class="business-service__number">01 / WEB EXPERIENCE</span>
+          <div class="business-service__visual business-service__visual--website" aria-hidden="true">
+            <div class="biz-site-window"><div class="biz-site-window__bar"><i></i><i></i><i></i></div><div class="biz-site-window__hero"><span></span><strong></strong><small></small><b></b></div><div class="biz-site-window__cards"><i></i><i></i><i></i></div></div>
+            <div class="biz-site-cursor">↗</div>
+          </div>
+          <div class="business-service__content"><div class="business-service__icon">↗</div><h3>Criação de sites</h3><p>Landing pages, sites institucionais, catálogos e experiências digitais construídas para apresentar a empresa com clareza e converter atenção em contato.</p><ul><li>Design responsivo</li><li>Performance e SEO técnico base</li><li>Integrações e formulários</li></ul><a href="#business-contato">Planejar um site <span>↗</span></a></div>
+        </article>
+
+        <article class="business-service business-service--content business-reveal" data-biz-service="content">
+          <span class="business-service__number">02 / CONTENT SYSTEM</span>
+          <div class="business-service__visual business-service__visual--content" aria-hidden="true"><div class="biz-post biz-post--one"><i></i><strong>01</strong></div><div class="biz-post biz-post--two"><i></i><strong>02</strong></div><div class="biz-post biz-post--three"><i></i><strong>03</strong></div><span class="biz-content-orbit"></span></div>
+          <div class="business-service__content"><div class="business-service__icon">▦</div><h3>Posts & conteúdo</h3><p>Peças visuais e estrutura de conteúdo para redes sociais com consistência de marca.</p><ul><li>Posts e carrosséis</li><li>Campanhas</li><li>Padronização visual</li></ul></div>
+        </article>
+
+        <article class="business-service business-service--analysis business-reveal" data-biz-service="analysis">
+          <span class="business-service__number">03 / SOFTWARE REVIEW</span>
+          <div class="business-service__visual business-service__visual--analysis" aria-hidden="true"><div class="biz-radar"><span></span><i></i><b></b><em></em></div><div class="biz-scan-line"></div><small>UX / FLOW / RISK</small></div>
+          <div class="business-service__content"><div class="business-service__icon">◎</div><h3>Análise de software</h3><p>Revisão de fluxo, interface, experiência de uso e problemas percebidos em sistemas existentes.</p><ul><li>UX e navegação</li><li>Fluxos críticos</li><li>Relatório de melhorias</li></ul></div>
+        </article>
+
+        <article class="business-service business-service--support business-reveal" data-biz-service="support">
+          <span class="business-service__number">04 / SITE OPERATIONS</span>
+          <div class="business-service__visual business-service__visual--support" aria-hidden="true"><div class="biz-support-ring"><span></span><i></i><b></b></div><div class="biz-support-status"><i></i><span>MONITORING</span><strong>ONLINE</strong></div><div class="biz-support-wave"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="business-service__content"><div class="business-service__icon">⌁</div><h3>Suporte a sites</h3><p>Correções, atualizações, conteúdo, pequenas evoluções e acompanhamento técnico.</p><ul><li>Manutenção</li><li>Correções</li><li>Melhorias contínuas</li></ul></div>
+        </article>
+
+        <article class="business-service business-service--feedback business-reveal" data-biz-service="feedback">
+          <span class="business-service__number">05 / STRATEGY FEEDBACK</span>
+          <div class="business-service__visual business-service__visual--feedback" aria-hidden="true"><div class="biz-feedback-score"><span>COREX SCORE</span><strong>92</strong><small>/100</small></div><div class="biz-feedback-bars"><i style="--v:86%"></i><i style="--v:92%"></i><i style="--v:77%"></i></div><div class="biz-feedback-tag">ACTION PLAN ↗</div></div>
+          <div class="business-service__content"><div class="business-service__icon">◇</div><h3>Feedback & consultoria</h3><p>Uma segunda visão sobre site, produto digital ou comunicação para encontrar pontos fracos e oportunidades.</p><ul><li>Feedback estruturado</li><li>Prioridades</li><li>Plano de ação</li></ul></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="business-section business-process" id="business-processo">
+    <div class="business-container">
+      <header class="business-heading business-heading--split business-reveal"><div><p class="business-kicker"><span></span> 02 / PROCESSO</p><h2>Profissional sem virar <em>burocrático.</em></h2></div><p>Um projeto bom precisa ter uma sequência simples: entender, decidir, executar e medir o que ficou melhor.</p></header>
+      <div class="business-process__track">
+        <article class="business-process__step business-reveal"><span>01</span><i></i><h3>Briefing</h3><p>Objetivo, público, problema atual, referências e escopo.</p></article>
+        <article class="business-process__step business-reveal"><span>02</span><i></i><h3>Direção</h3><p>Estrutura, linguagem visual e prioridades antes de produzir.</p></article>
+        <article class="business-process__step business-reveal"><span>03</span><i></i><h3>Execução</h3><p>Construção, revisão e refinamento com foco no que será usado.</p></article>
+        <article class="business-process__step business-reveal"><span>04</span><i></i><h3>Evolução</h3><p>Feedback, suporte e melhorias após a entrega.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="business-section business-deliverables">
+    <div class="business-container">
+      <header class="business-heading business-reveal"><p class="business-kicker"><span></span> 03 / ENTREGAS</p><h2>O que sua empresa <em>recebe.</em></h2></header>
+      <div class="business-table business-reveal">
+        <div class="business-table__row business-table__head"><span>Serviço</span><span>Entrega principal</span><span>Indicado para</span></div>
+        <div class="business-table__row"><strong>Website</strong><span>Interface responsiva + estrutura pronta para publicação</span><span>Empresas que precisam vender ou apresentar melhor</span></div>
+        <div class="business-table__row"><strong>Conteúdo</strong><span>Peças visuais e direção de comunicação</span><span>Marcas com presença digital inconsistente</span></div>
+        <div class="business-table__row"><strong>Análise</strong><span>Diagnóstico + pontos de melhoria + prioridades</span><span>Produtos e softwares que já existem</span></div>
+        <div class="business-table__row"><strong>Suporte</strong><span>Correções, atualizações e pequenas evoluções</span><span>Sites que precisam continuar funcionando bem</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="business-section business-contact" id="business-contato">
+    <div class="business-container business-contact__shell business-reveal">
+      <div class="business-contact__copy"><p class="business-kicker"><span></span> 04 / NOVO PROJETO</p><h2>Tem algo para construir ou <em>melhorar?</em></h2><p>Conte rapidamente o que sua empresa precisa. Este formulário prepara o briefing no navegador; depois podemos conectar ao WhatsApp, e-mail ou backend.</p><div class="business-contact__badges"><span>Sites</span><span>Conteúdo</span><span>Software</span><span>Suporte</span></div></div>
+      <form class="business-form" id="business-contact-form"><label><span>Empresa / nome</span><input name="company" required placeholder="Ex.: Star Imobi"></label><label><span>O que você precisa?</span><select name="service" required><option value="site">Criação de site</option><option value="content">Posts / conteúdo</option><option value="analysis">Análise de software</option><option value="support">Suporte a site</option><option value="feedback">Feedback / consultoria</option></select></label><label><span>Resumo do projeto</span><textarea name="brief" rows="5" required placeholder="Explique o objetivo, problema atual ou o que você gostaria de criar..."></textarea></label><button class="business-button business-button--primary business-button--full" type="submit">Preparar briefing <span>↗</span></button><p class="business-form__status" id="business-form-status" role="status"></p></form>
+    </div>
+  </section>
+
+  <section class="business-closing business-reveal"><div class="business-container"><span>COREX BUSINESS</span><h2>Design, tecnologia e suporte.<br><em>Na mesma operação.</em></h2><button class="business-button business-button--soft" type="button" data-division="performance">Voltar ao COREX Performance</button></div></section>
+</main>
+<footer id="business-footer" class="business-footer" hidden><div class="business-footer__brand">↗ COREX <span>BUSINESS</span></div><span>Digital operations / 2026</span><button type="button" data-division="performance">COREX Performance ↗</button></footer>
 <dialog id="plan-dialog"><button class="close-dialog" aria-label="Fechar">×</button><p class="eyebrow">SUA SELEÇÃO</p><h2>COREX <span id="chosen-plan">BOOST</span></h2><p class="dialog-price" id="chosen-price">R$ 22,00</p><p>Salve o resumo para consultar depois. O canal de contratação ainda não foi configurado neste site; esta seleção não faz uma compra.</p><textarea id="plan-summary" readonly aria-label="Resumo do plano escolhido"></textarea><button class="button primary" id="copy-plan">Copiar resumo <span>↗</span></button><p id="copy-status" role="status"></p></dialog>
 <button class="whatsapp-float" id="whatsapp-button" type="button" aria-label="Falar com a COREX pelo WhatsApp" title="WhatsApp — número será configurado depois">
   <span class="whatsapp-float__pulse" aria-hidden="true"></span>

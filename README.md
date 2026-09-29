@@ -1,4 +1,4 @@
-# COREX Performance V8
+# COREX V10 — Performance e Business 3D
 
 Versão baseada na V7.3 HQ Fluid, mantendo vídeo 1080p e qualidade visual.
 
@@ -19,3 +19,23 @@ Quando tivermos o número, podemos adicionar no JavaScript uma URL no formato of
 
 ## Abrir
 Extraia o ZIP e abra `index.html`.
+
+## COREX Business
+Esta versão também inclui a divisão COREX Business no mesmo site.
+
+- Troca entre COREX Performance e COREX Business sem recarregar a página.
+- COREX Business usa tema azul/branco e fundo corporativo próprio.
+- Serviços: criação de sites, posts/conteúdo, análise de software, suporte a sites e feedback/consultoria.
+- Acesso pela escolha na intro ou pelo seletor no header.
+- O vídeo da divisão Performance é pausado quando a Business está ativa para economizar recursos.
+- O formulário Business ainda é demonstrativo e pode ser conectado ao WhatsApp, e-mail ou backend depois.
+
+
+## V10 — COREX Business 3D
+- Hero Business redesenhado em azul neon escuro + branco
+- Cubo 3D COREX Business com interação de mouse
+- Fundo de dados em Canvas leve, ativo somente quando a Business está visível
+- Painéis flutuantes de website, analytics e status
+- Cada serviço possui animação visual própria
+- Cards de serviços com tilt e iluminação local
+- Header Business em vidro azul escuro
