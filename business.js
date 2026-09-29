@@ -269,7 +269,7 @@
     });
 
     // Project cards use only a cursor-local highlight; no extra transform chain.
-    document.querySelectorAll('.business-project-card,.business-standard').forEach((card) => {
+    document.querySelectorAll('.business-project-card,.business-standard,.business-showcase-card').forEach((card) => {
       let raf = 0;
       let x = 0;
       let y = 0;
@@ -281,6 +281,8 @@
         raf = requestAnimationFrame(() => {
           card.style.setProperty('--detail-x', `${x}px`);
           card.style.setProperty('--detail-y', `${y}px`);
+          card.style.setProperty('--show-x', `${x}px`);
+          card.style.setProperty('--show-y', `${y}px`);
           raf = 0;
         });
       }, { passive: true });

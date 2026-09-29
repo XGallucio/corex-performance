@@ -1,4 +1,4 @@
-# COREX V11 ? Performance e Business Operations Hub
+# COREX V12 ? Performance e Business Showcase
 
 Versão baseada na V7.3 HQ Fluid, mantendo vídeo 1080p e qualidade visual.
 
@@ -47,3 +47,13 @@ Esta versão também inclui a divisão COREX Business no mesmo site.
 - Novos formatos de projeto, padrão COREX e briefing ampliado.
 - Serviços mantêm microanimações e agora exibem categorias/entregas com mais detalhe.
 - COREX Performance preservado.
+
+## V12 — COREX Business Showcase
+
+- Corrigido o vazamento de verde no menu superior da divisão Business.
+- Menu Business agora usa apenas azul neon, ciano, branco e tons frios.
+- Nova aba **Vitrine** no header da Business.
+- Nova seção com quatro conceitos demonstrativos de sites: institucional premium, SaaS/dashboard, campanha criativa e e-commerce.
+- Os exemplos são identificados como conceitos de vitrine, sem serem apresentados como clientes reais.
+- Adicionado bloco de qualidade com design system, responsividade, motion e estrutura para evolução.
+- Microinterações da vitrine atualizam apenas durante interação do ponteiro, sem loop pesado adicional.

@@ -676,3 +676,232 @@ body.business-mode .motion-toggle:hover{color:#eafaff!important;border-color:rgb
 @media(prefers-reduced-motion:reduce){
   .business-ops-stage::before,.business-ops-float{animation:none!important}.business-ops-scene{transition:none!important}
 }
+
+/* =========================================================
+   COREX BUSINESS V12 — BLUE NAV + QUALITY SHOWCASE
+   ========================================================= */
+
+/* Hard-scope the Business header palette so Performance green never leaks in. */
+body.business-mode #business-nav,
+body.business-mode #business-nav *{
+  --v7-lime:#4ee1ff;
+  --v7-cyan:#2f8cff;
+}
+body.business-mode #business-nav .top-nav__link{
+  color:#82a0bb!important;
+}
+body.business-mode #business-nav .top-nav__label{
+  color:inherit!important;
+  text-shadow:none!important;
+}
+body.business-mode #business-nav .top-nav__index{
+  color:#637f99!important;
+}
+body.business-mode #business-nav .top-nav__arrow{
+  color:#4ee1ff!important;
+}
+body.business-mode #business-nav .top-nav__link::before{
+  background:radial-gradient(120px circle at var(--fx-x,50%) var(--fx-y,50%),rgba(47,140,255,.20),rgba(78,225,255,.10) 42%,transparent 72%)!important;
+}
+body.business-mode #business-nav .top-nav__link::after{
+  background:linear-gradient(90deg,transparent,#2f8cff,#4ee1ff,transparent)!important;
+}
+body.business-mode #business-nav .top-nav__link:hover{
+  color:#f4fcff!important;
+  background:rgba(53,185,255,.06)!important;
+  box-shadow:inset 0 0 0 1px rgba(83,211,255,.10);
+}
+body.business-mode #business-nav .top-nav__link:hover .top-nav__index,
+body.business-mode #business-nav .top-nav__link.is-active .top-nav__index{
+  color:#57e6ff!important;
+}
+body.business-mode #business-nav .top-nav__link.is-active{
+  color:#f4fcff!important;
+  background:linear-gradient(180deg,rgba(47,140,255,.18),rgba(42,221,255,.075))!important;
+  box-shadow:inset 0 0 0 1px rgba(87,225,255,.16),0 8px 28px rgba(0,7,24,.20)!important;
+}
+body.business-mode .division-switch__button--business.is-active{
+  color:#f2fcff!important;
+  background:linear-gradient(180deg,rgba(47,140,255,.16),rgba(38,220,255,.075))!important;
+  box-shadow:inset 0 0 0 1px rgba(79,219,255,.18)!important;
+}
+body.business-mode .division-switch__button--business.is-active .division-switch__dot{
+  background:#4ee1ff!important;
+  box-shadow:0 0 14px rgba(78,225,255,.62)!important;
+}
+
+/* Showcase / concept portfolio */
+.business-showcase{
+  overflow:hidden;
+  border-top:1px solid rgba(67,171,255,.08);
+  border-bottom:1px solid rgba(67,171,255,.08);
+  background:
+    radial-gradient(circle at 82% 14%,rgba(0,200,255,.10),transparent 29rem),
+    radial-gradient(circle at 8% 72%,rgba(35,104,255,.09),transparent 31rem),
+    linear-gradient(180deg,rgba(3,17,39,.96),rgba(5,22,48,.985));
+  color:#eaf8ff;
+}
+.business-showcase .business-heading h2{color:#f1f9ff}
+.business-showcase .business-heading>p:last-child{color:#8da9c4}
+.business-showcase .business-kicker{color:#6d9bc3}
+
+.business-showcase-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:24px;
+}
+.business-showcase-card{
+  --show-x:50%;
+  --show-y:50%;
+  position:relative;
+  min-width:0;
+  padding:15px;
+  border:1px solid rgba(101,202,255,.13);
+  border-radius:26px;
+  overflow:hidden;
+  isolation:isolate;
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  box-shadow:0 26px 70px rgba(0,7,24,.20),inset 0 1px 0 rgba(255,255,255,.045);
+  transform:translateZ(0);
+  transition:transform .45s var(--biz-ease),border-color .35s ease,box-shadow .4s ease;
+}
+.business-showcase-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:0;
+  pointer-events:none;
+  background:radial-gradient(310px circle at var(--show-x) var(--show-y),rgba(55,198,255,.15),transparent 68%);
+  transition:opacity .25s ease;
+}
+.business-showcase-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(94,220,255,.28);
+  box-shadow:0 34px 88px rgba(0,9,31,.32),0 0 45px rgba(31,164,255,.07),inset 0 1px 0 rgba(255,255,255,.07);
+}
+.business-showcase-card:hover::before{opacity:1}
+.business-showcase-card__top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:2px 4px 13px;
+  color:#7094b3;
+  font:700 8px/1.2 Consolas,monospace;
+  letter-spacing:.14em;
+}
+.business-showcase-card__top span{color:#57e5ff}
+.business-showcase-card__top small{font:inherit;color:#667f98}
+
+.business-showcase-browser{
+  position:relative;
+  height:350px;
+  overflow:hidden;
+  border:1px solid rgba(122,207,255,.15);
+  border-radius:18px;
+  background:#06172e;
+  box-shadow:0 18px 48px rgba(0,5,20,.28);
+  transform:translateZ(0);
+}
+.business-showcase-browser__bar{
+  height:34px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:0 11px;
+  border-bottom:1px solid rgba(111,203,255,.10);
+  background:rgba(2,12,28,.92);
+}
+.business-showcase-browser__bar i{width:6px;height:6px;border-radius:50%;background:#264968}
+.business-showcase-browser__bar i:first-child{background:#4be0ff}
+.business-showcase-browser__bar span{margin-left:5px;color:#547490;font:600 7px Consolas,monospace;letter-spacing:.06em}
+.business-showcase-browser__page{
+  position:absolute;
+  inset:34px 0 0;
+  overflow:hidden;
+  transition:transform .75s var(--biz-ease),filter .35s ease;
+}
+.business-showcase-card:hover .business-showcase-browser__page{transform:scale(1.018)}
+
+/* NEXUS */
+.business-showcase-browser__page--nexus{
+  color:#171815;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px),
+    #ede9e0;
+  background-size:88px 100%;
+}
+.business-showcase-browser__page--nexus nav,
+.business-showcase-browser__page--vanta nav{
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  font:600 6px Consolas,monospace;
+  letter-spacing:.13em;
+}
+.business-showcase-browser__page--nexus nav b{font:800 10px/1 Arial,sans-serif;letter-spacing:.18em}
+.business-showcase-browser__hero-copy{padding:34px 25px 20px}
+.business-showcase-browser__hero-copy small{display:block;color:#7e7b72;font:700 6px Consolas,monospace;letter-spacing:.15em}
+.business-showcase-browser__hero-copy strong{display:block;margin-top:13px;font:500 34px/ .96 Georgia,serif;letter-spacing:-.05em}
+.business-showcase-browser__hero-copy i{display:block;width:53px;height:2px;margin-top:20px;background:#1b1c18}
+.business-showcase-browser__tiles{position:absolute;left:25px;right:25px;bottom:20px;display:grid;grid-template-columns:1.5fr .8fr .8fr;gap:8px;height:92px}
+.business-showcase-browser__tiles span{display:block;border-radius:2px;background:linear-gradient(150deg,#81796a,#b8ae9b)}
+.business-showcase-browser__tiles span:nth-child(2){background:linear-gradient(150deg,#3c4141,#808886)}
+.business-showcase-browser__tiles span:nth-child(3){background:linear-gradient(150deg,#b4a186,#796e5f)}
+
+/* ATLAS */
+.business-showcase-browser__page--atlas{display:grid;grid-template-columns:43px 1fr;background:#07101f}
+.business-showcase-browser__page--atlas aside{padding-top:14px;display:flex;align-items:center;flex-direction:column;gap:13px;border-right:1px solid #1d3147;background:#081624}
+.business-showcase-browser__page--atlas aside b{width:23px;height:23px;display:grid;place-items:center;border-radius:7px;color:#061423;background:#5ce5ff;font:800 9px Arial}
+.business-showcase-browser__page--atlas aside span{width:15px;height:15px;border-radius:5px;background:#142a40}.business-showcase-browser__page--atlas aside span:nth-of-type(2){background:#195fd03d;border:1px solid #3d9cff4f}
+.business-showcase-browser__page--atlas .atlas-main{padding:21px 20px;color:#ecf8ff}
+.atlas-head{display:flex;align-items:flex-start;justify-content:space-between}.atlas-head small{display:block;color:#5e7d98;font:700 6px Consolas,monospace;letter-spacing:.14em}.atlas-head strong{display:block;margin-top:5px;font-size:16px;letter-spacing:-.03em}.atlas-head em{padding:5px 7px;border-radius:7px;color:#63efc8;background:#56efbe13;font:700 7px Consolas,monospace;font-style:normal}
+.atlas-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:18px}.atlas-metrics span{padding:11px 10px;border:1px solid #1b3853;border-radius:9px;background:#0a1b2d}.atlas-metrics small{display:block;color:#63819b;font-size:6px}.atlas-metrics b{display:block;margin-top:6px;font-size:13px}
+.atlas-chart{height:115px;margin-top:10px;display:flex;align-items:flex-end;gap:8px;padding:16px 14px;border:1px solid #17344d;border-radius:11px;background:linear-gradient(180deg,#0a1c2f,#081724)}.atlas-chart i{flex:1;display:block;border-radius:4px 4px 1px 1px;background:linear-gradient(#57e6ff,#146eff);height:34%}.atlas-chart i:nth-child(2){height:51%}.atlas-chart i:nth-child(3){height:43%}.atlas-chart i:nth-child(4){height:72%}.atlas-chart i:nth-child(5){height:61%}.atlas-chart i:nth-child(6){height:86%}.atlas-chart i:nth-child(7){height:76%}
+
+/* AURA */
+.business-showcase-browser__page--aura{background:radial-gradient(circle at 70% 34%,#ff6950 0 8%,transparent 26%),radial-gradient(circle at 58% 48%,#8f5cff 0 8%,transparent 32%),linear-gradient(135deg,#eef2ff,#f8f3ff);color:#161127}
+.aura-mark{position:absolute;left:18px;top:15px;font:900 11px Arial,sans-serif;letter-spacing:.18em}.aura-orb{position:absolute;right:45px;top:37px;width:148px;height:148px;border-radius:45% 55% 58% 42%;background:radial-gradient(circle at 35% 30%,#fff 0 4%,#ff996c 18%,#8c5cff 55%,#29155f 100%);box-shadow:0 25px 55px rgba(73,31,132,.24);transform:rotate(-16deg)}
+.business-showcase-browser__page--aura p{position:absolute;left:21px;top:108px;margin:0;font:800 30px/.88 Arial,sans-serif;letter-spacing:-.065em}.business-showcase-browser__page--aura p b{color:#7657ff}.aura-strip{position:absolute;left:0;right:0;bottom:0;height:46px;display:flex;align-items:center;justify-content:space-around;border-top:1px solid #1d12321d;font:700 6px Consolas,monospace;letter-spacing:.17em}
+
+/* VANTA */
+.business-showcase-browser__page--vanta{background:#f5f2ec;color:#151515}.business-showcase-browser__page--vanta nav b{font:900 11px Arial;letter-spacing:.22em}.vanta-product{display:grid;grid-template-columns:1.1fr .8fr;align-items:center;gap:16px;height:215px;padding:15px 22px}.vanta-product__shape{height:168px;border-radius:50% 50% 46% 54%;background:radial-gradient(circle at 38% 28%,#fff 0 5%,#b9c0c2 19%,#5e696d 57%,#1b2022 100%);box-shadow:0 28px 48px rgba(31,37,39,.19);transform:rotate(-9deg)}.vanta-product small{display:block;color:#8b8b83;font:700 6px Consolas,monospace;letter-spacing:.15em}.vanta-product strong{display:block;margin-top:8px;font:800 23px Arial;letter-spacing:-.055em}.vanta-product p{margin:6px 0 12px;color:#696960;font-size:8px}.vanta-product .vanta-btn{display:inline-block;border:0;padding:7px 10px;background:#141414;color:#fff;font:700 6px Consolas,monospace;letter-spacing:.1em}.vanta-thumbs{position:absolute;left:22px;right:22px;bottom:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.vanta-thumbs i{height:33px;background:#dedad1}.vanta-thumbs i:nth-child(2){background:#c5cbc9}.vanta-thumbs i:nth-child(3){background:#a8a39b}.vanta-thumbs i:nth-child(4){background:#e9e1d5}
+
+.business-showcase-card__info{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;padding:18px 5px 5px}.business-showcase-card__info h3{margin:0;color:#f4fbff;font-size:20px;letter-spacing:-.025em}.business-showcase-card__info p{max-width:410px;margin:7px 0 0;color:#7897b2;font-size:12px;line-height:1.55}.business-showcase-card__tags{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px}.business-showcase-card__tags span{padding:6px 7px;border:1px solid rgba(97,205,255,.14);border-radius:999px;color:#62dfff;background:rgba(42,163,255,.055);font:700 6px Consolas,monospace;letter-spacing:.09em;white-space:nowrap}
+
+.business-showcase-quality{display:grid;grid-template-columns:repeat(4,1fr);margin-top:26px;border:1px solid rgba(99,205,255,.12);border-radius:22px;overflow:hidden;background:rgba(255,255,255,.025)}.business-showcase-quality>div{min-height:148px;padding:23px;border-right:1px solid rgba(99,205,255,.09)}.business-showcase-quality>div:last-child{border-right:0}.business-showcase-quality small{color:#5ddfff;font:700 7px Consolas,monospace;letter-spacing:.14em}.business-showcase-quality strong{display:block;margin-top:12px;color:#eaf9ff;font-size:15px}.business-showcase-quality span{display:block;margin-top:8px;color:#7895ae;font-size:11px;line-height:1.55}
+
+/* Slightly denser top nav now that Business has four destinations. */
+body.business-mode #business-nav .top-nav__link{padding-inline:11px!important;gap:6px!important}
+body.business-mode #business-nav .top-nav__label{font-size:12px!important}
+
+@media(max-width:1080px){
+  .business-showcase-grid{grid-template-columns:1fr}
+  .business-showcase-browser{height:390px}
+  .business-showcase-quality{grid-template-columns:repeat(2,1fr)}
+  .business-showcase-quality>div:nth-child(2){border-right:0}
+  .business-showcase-quality>div:nth-child(-n+2){border-bottom:1px solid rgba(99,205,255,.09)}
+}
+@media(max-width:900px){
+  body.business-mode #business-nav .top-nav__index{display:none!important}
+  body.business-mode #business-nav .top-nav__link{padding-inline:9px!important}
+  body.business-mode #business-nav .top-nav__label{font-size:10px!important}
+}
+@media(max-width:760px){
+  .business-showcase-grid{gap:16px}
+  .business-showcase-card{padding:10px;border-radius:20px}
+  .business-showcase-browser{height:315px;border-radius:14px}
+  .business-showcase-card__info{display:block;padding:15px 3px 4px}
+  .business-showcase-card__tags{justify-content:flex-start;margin-top:12px}
+  .business-showcase-quality{grid-template-columns:1fr}
+  .business-showcase-quality>div{min-height:auto;border-right:0!important;border-bottom:1px solid rgba(99,205,255,.09)!important}
+  .business-showcase-quality>div:last-child{border-bottom:0!important}
+  .aura-orb{right:25px;width:120px;height:120px}
+  .business-showcase-browser__page--aura p{font-size:25px}
+  .vanta-product{grid-template-columns:1fr 1fr;padding-inline:14px}
+  body.business-mode #business-nav .top-nav__link{padding-inline:7px!important}
+  body.business-mode #business-nav .top-nav__label{font-size:9px!important}
+}
