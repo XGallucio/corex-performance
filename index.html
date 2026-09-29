@@ -4,8 +4,8 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#070a0b"><meta name="description" content="COREX Performance. Explore seu hardware e estime o potencial de uma otimização com transparência.">
   <title>COREX — Performance em outra dimensão</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="intro.css"><link rel="stylesheet" href="v7.css"><link rel="stylesheet" href="business.css">
-  <script src="intro.js" defer></script><script src="simulator.js" defer></script><script src="app.js" defer></script><script src="v7.js" defer></script><script src="business.js" defer></script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="intro.css"><link rel="stylesheet" href="v7.css"><link rel="stylesheet" href="business.css"><link rel="stylesheet" href="business-scene.css?v=14-scene-3">
+  <script src="intro.js" defer></script><script src="simulator.js" defer></script><script src="app.js" defer></script><script src="v7.js?v=14-scene-3" defer></script><script src="business.js?v=14-scene-3" defer></script><script src="business-scene.js?v=14-scene-3" defer></script>
 </head>
 <body>
 <div class="site-video-shell" aria-hidden="true"><video id="site-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture poster="assets/corex-bg-poster-hq.jpg"><source src="./assets/corex-bg-1080p-perf.mp4" type="video/mp4"><source src="./assets/corex-bg.mp4" type="video/mp4"></video><div class="site-video-overlay"></div></div>
@@ -47,78 +47,27 @@
       </div>
 
       <div class="business-hero__visual business-reveal">
-        <div class="business-ops-stage" id="businessOpsStage" aria-label="COREX Business command deck 3D">
-          <div class="business-ops-stage__grid" aria-hidden="true"></div>
-          <div class="business-ops-stage__glow" aria-hidden="true"></div>
-          <div class="business-ops-floor" aria-hidden="true"></div>
-          <div class="business-ops-aura business-ops-aura--a" aria-hidden="true"></div>
-          <div class="business-ops-aura business-ops-aura--b" aria-hidden="true"></div>
-
-          <div class="business-ops-scene business-ops-scene--v13" id="businessOpsScene">
-            <div class="business-ops-browser business-ops-layer business-ops-layer--main">
-              <div class="business-ops-browser__bar"><i></i><i></i><i></i><span>corexbusiness.app / active-project</span></div>
-              <div class="business-ops-browser__hero">
-                <small>COREX BUSINESS / WEBSITE SYSTEM</small>
-                <strong>Sites que parecem<br>produto premium.</strong>
-                <p>Design, estrutura e clareza comercial para apresentar sua empresa de forma forte.</p>
-                <div class="business-ops-browser__chips"><span>UI/UX</span><span>Responsive</span><span>Conversion</span></div>
+        <div class="cx-scene" id="businessOpsStage" role="img" aria-label="Modelo 3D de um monitor e celular exibindo um conceito de site COREX, com painéis de conteúdo e suporte">
+          <div class="cx-scene__eyebrow"><span>COREX / DIGITAL STUDIO</span><b>DESIGN EM OPERAÇÃO</b></div>
+          <div class="cx-scene__viewport" aria-hidden="true">
+            <div class="cx-scene__halo"></div><div class="cx-scene__shadow"></div>
+            <div class="cx-scene__camera"><div class="cx-scene__rig" id="businessOpsScene">
+              <div class="cx-monitor">
+                <div class="cx-monitor__back"></div><div class="cx-monitor__edge"></div>
+                <div class="cx-monitor__neck"></div><div class="cx-monitor__foot"></div>
+                <div class="cx-monitor__frame"><div class="cx-monitor__screen">
+                  <div class="cx-site__bar"><i></i><i></i><i></i><span>studio.corex / conceito</span></div>
+                  <div class="cx-site__nav"><strong>↗ COREX STUDIO</strong><span>ESTÚDIO PROJETOS CONTATO</span></div>
+                  <div class="cx-site__hero"><small>ESTRATÉGIA ENCONTRA DESIGN</small><h3>Uma boa ideia.<br><em>Uma nova presença.</em></h3><p>Experiências digitais feitas para sua marca.</p><span class="cx-site__cta">Conheça o projeto ↗</span><div class="cx-site__sculpture"></div></div>
+                  <div class="cx-site__footer"><span><b>01 / Identidade</b>Uma linguagem própria.</span><span><b>02 / Experiência</b>Clareza em cada tela.</span><span><b>03 / Evolução</b>Espaço para crescer.</span></div>
+                </div><span class="cx-monitor__logo">COREX / DISPLAY</span></div>
               </div>
-              <div class="business-ops-browser__body">
-                <div class="business-ops-browser__stats">
-                  <article><small>LOAD</small><strong>1.2s</strong><span>Fast opening experience</span></article>
-                  <article><small>FLOW</small><strong>04</strong><span>Sections mapped with CTA</span></article>
-                  <article><small>UX</small><strong>92</strong><span>Clarity and hierarchy score</span></article>
-                </div>
-                <div class="business-ops-browser__wire">
-                  <span class="is-wide"></span><span></span><span></span><span class="is-half"></span>
-                  <div class="business-ops-browser__mini-grid"><i></i><i></i><i></i></div>
-                </div>
-              </div>
-            </div>
-
-            <article class="business-ops-phone business-ops-layer business-ops-layer--phone">
-              <div class="business-ops-phone__bar"></div>
-              <div class="business-ops-phone__screen">
-                <small>MOBILE VIEW</small>
-                <strong>Brand launch</strong>
-                <i></i><i></i><i></i>
-              </div>
-            </article>
-
-            <article class="business-ops-panel business-ops-panel--analytics business-ops-layer">
-              <small>ANALYTICS</small>
-              <strong>Performance / Content</strong>
-              <div class="business-ops-bars"><i style="--h:62%"></i><i style="--h:84%"></i><i style="--h:46%"></i><i style="--h:76%"></i><i style="--h:58%"></i></div>
-              <span>Leitura clara do que está performando.</span>
-            </article>
-
-            <article class="business-ops-panel business-ops-panel--content business-ops-layer">
-              <small>CONTENT KIT</small>
-              <strong>Posts / campanhas</strong>
-              <div class="business-ops-card-stack"><i></i><i></i><i></i></div>
-              <span>Peças visuais com sistema consistente.</span>
-            </article>
-
-            <article class="business-ops-panel business-ops-panel--support business-ops-layer">
-              <small>SUPPORT</small>
-              <strong>Site health / updates</strong>
-              <div class="business-ops-supportline"><i></i><b></b><span>ONLINE</span></div>
-              <span>Correções, manutenção e evolução contínua.</span>
-            </article>
-
-            <article class="business-ops-panel business-ops-panel--audit business-ops-layer">
-              <small>AUDIT</small>
-              <strong>Flow review</strong>
-              <div class="business-ops-radar"><i></i><i></i><b></b></div>
-              <span>Pontos de melhoria mapeados visualmente.</span>
-            </article>
-
-            <div class="business-ops-orbit" aria-hidden="true"></div>
+              <div class="cx-phone"><div class="cx-phone__island"></div><div class="cx-phone__screen"><small>↗ COREX STUDIO</small><strong>Uma boa ideia.<br>Em toda tela.</strong><div class="cx-phone__art"></div><span>Explorar projeto ↗</span></div></div>
+              <div class="cx-widget cx-widget--system"><small>WEBSITE / SUPORTE</small><strong><i></i> Tudo conectado.</strong><span>Design · conteúdo · evolução</span></div>
+              <div class="cx-widget cx-widget--flow"><small>CONTEÚDO / SISTEMA</small><strong>Uma marca. Mais alcance.</strong><div class="cx-widget__bars"><i style="--bar:45%"></i><i></i><i></i><i></i><i></i></div></div>
+            </div></div>
           </div>
-
-          <div class="business-ops-caption business-ops-caption--a"><span>01</span> WEBSITE / EXPERIENCE</div>
-          <div class="business-ops-caption business-ops-caption--b"><span>02</span> CONTENT / SYSTEM</div>
-          <div class="business-ops-caption business-ops-caption--c"><span>03</span> SUPPORT / EVOLVE</div>
+          <div class="cx-scene__caption"><span>DESKTOP + MOBILE / MESMA IDENTIDADE</span><span>CONCEITO ILUSTRATIVO</span></div>
         </div>
       </div>
     </div>

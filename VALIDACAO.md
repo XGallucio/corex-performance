@@ -1,3 +1,16 @@
+# Revis?o da cena Business da V14 ? 29/09/2026
+
+- Modelo do hero reconstru?do como monitor com espessura, suporte e base, acompanhado por celular e dois pain?is compactos.
+- Navegador local: larguras 320, 390, 768, 1024 e 1440 px sem transbordamento horizontal ou cortes nas quatro pe?as principais.
+- Motion pausado: c?mera volta ? posi??o inicial, intera??o desativada e Business permanece com opacidade normal.
+- Troca Performance/Business verificada; v?deo fica pausado em Business. N?o h? anima??o cont?nua na nova cena.
+- Console do navegador consultado: nenhum erro ou aviso.
+- Sintaxe dos scripts e teste do simulador: 5.760 cen?rios v?lidos e 9 entradas inv?lidas passaram.
+- Recursos relativos do HTML presentes; IDs sem duplica??o.
+- Os tamanhos foram testados por emula??o no navegador integrado, n?o em aparelhos f?sicos.
+
+---
+
 # Validação da entrega — 08/09/2026
 
 ## Atualização 4.2 — abertura cinematográfica

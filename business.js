@@ -26,6 +26,12 @@
     const business = next === 'business';
     division = business ? 'business' : 'performance';
 
+    const scrollToDivision = () => {
+      if (options.scroll === false) return;
+      const target = business ? businessSite : performanceSite;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: reducedMotion ? 'auto' : 'smooth' });
+    };
+
     const apply = () => {
       body.classList.toggle('business-mode', business);
       performanceSite.hidden = business;
@@ -46,21 +52,19 @@
       if (business) {
         video?.pause();
         businessSite.classList.remove('division-enter');
-        requestAnimationFrame(() => businessSite.classList.add('division-enter'));
-      } else if (!document.hidden) {
+        if (!document.documentElement.classList.contains('paused') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          requestAnimationFrame(() => businessSite.classList.add('division-enter'));
+        }
+      } else if (!document.hidden && !document.documentElement.classList.contains('paused') && !intro?.open) {
         video?.play().catch(() => {});
       }
     };
 
     if (document.startViewTransition && !reducedMotion && !options.instant) {
-      document.startViewTransition(apply);
+      document.startViewTransition(apply).updateCallbackDone.then(scrollToDivision).catch(() => {});
     } else {
       apply();
-    }
-
-    if (options.scroll !== false) {
-      const target = business ? document.querySelector('#business-inicio') : document.querySelector('#inicio');
-      window.scrollTo({ top: target?.offsetTop || 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+      scrollToDivision();
     }
   }
 
@@ -198,36 +202,6 @@
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
-  const stage = document.querySelector('#businessOpsStage');
-  const scene = document.querySelector('#businessOpsScene');
-
-  // One compositor-only 3D transform for the whole hero scene.
-  // No canvas loop, no continuously rotating cube, no per-frame DOM rebuilding.
-  if (stage && scene && !coarsePointer && !reducedMotion) {
-    let raf = 0;
-    let nx = 0;
-    let ny = 0;
-
-    const paint = () => {
-      stage.style.setProperty('--ops-ry', `${(nx * 2.8).toFixed(2)}deg`);
-      stage.style.setProperty('--ops-rx', `${(-ny * 2.2).toFixed(2)}deg`);
-      raf = 0;
-    };
-
-    stage.addEventListener('pointermove', (event) => {
-      const rect = stage.getBoundingClientRect();
-      nx = Math.max(-.5, Math.min(.5, (event.clientX - rect.left) / rect.width - .5));
-      ny = Math.max(-.5, Math.min(.5, (event.clientY - rect.top) / rect.height - .5));
-      if (!raf) raf = requestAnimationFrame(paint);
-    }, { passive: true });
-
-    stage.addEventListener('pointerleave', () => {
-      nx = 0;
-      ny = 0;
-      if (!raf) raf = requestAnimationFrame(paint);
-    }, { passive: true });
-  }
-
   // Service cards keep a subtle, local 3D response. Updates are capped to one paint/frame.
   if (!coarsePointer && !reducedMotion) {
     document.querySelectorAll('[data-biz-service]').forEach((card) => {
@@ -292,11 +266,13 @@
   // Pause decorative CSS motion when the Business division is not visible.
   // CSS class is cheap and avoids background work while the user is in Performance.
   const syncBusinessMotion = () => {
-    document.documentElement.classList.toggle('business-running', document.body.classList.contains('business-mode') && !document.hidden);
+    document.documentElement.classList.toggle('business-running', document.body.classList.contains('business-mode') && !document.hidden && !document.documentElement.classList.contains('paused') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   };
   syncBusinessMotion();
   new MutationObserver(syncBusinessMotion).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   document.addEventListener('visibilitychange', syncBusinessMotion, { passive: true });
+  new MutationObserver(syncBusinessMotion).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', syncBusinessMotion);
 })();
 
 /* =========================================================

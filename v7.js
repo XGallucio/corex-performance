@@ -20,7 +20,7 @@
 
     let playbackUnlocked=false;
     const unlockEvents=['pointermove','pointerdown','touchstart','keydown','wheel','scroll'];
-    const shouldPause=()=>document.hidden||!!intro?.open;
+    const shouldPause=()=>document.hidden||!!intro?.open||document.body.classList.contains('business-mode')||document.documentElement.classList.contains('paused');
 
     const cleanupUnlock=()=>unlockEvents.forEach(type=>window.removeEventListener(type,unlockPlayback));
     const tryPlay=()=>{
@@ -49,6 +49,8 @@
     if(intro){
       new MutationObserver(tryPlay).observe(intro,{attributes:true,attributeFilter:['open']});
     }
+    new MutationObserver(tryPlay).observe(document.body,{attributes:true,attributeFilter:['class']});
+    new MutationObserver(tryPlay).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
 
     video.load();
     tryPlay();
